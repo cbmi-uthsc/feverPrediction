@@ -24,13 +24,14 @@ Fever can provide valuable information for diagnosis and prognosis of various di
 We hace used vitialPeriodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over a 2-year period.
 <h4>Physiological Variabels</h4>
 <ol>
-    <li>Temperature/li>
-    <li>Modules</li>
-    <li>Code Description</li>
-    <li>GSoC Experience</li>
-    <li>Conclusion</li>
-    <li>Team</li>
-    <li>License</li>
+    <li>**Temperature**: Patient’s temperature value in celsius/li>
+    <li>**saO2**: Patient’s saO2 value e.g.: 99, 94, 98</li>
+    <li>**heartRate**: Patient’s heart rate value e.g.: 102, 104, 70 </li>
+    <li>**respiration**: Patient’s respiration value e.g.: 25, 20, 17</li>
+    <li>**cvp**: Patient’s cvp value e.g.: 359, 272, 293</li>
+    <li>**systemicSystolic**: Patient’s systolic value e.g.: 120, 103, 106</li>
+    <li>**systemicDiastolic**: Patient’s diastolic value e.g.: 73, 65, 63</li>
+    <li>**systemicMean**: Patient’s mean pressure e.g.: 89, 75, 78</li>
 </ol>
 
 
