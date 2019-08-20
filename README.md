@@ -9,7 +9,6 @@ For cases, Identify a fever episode temp >= 38, look up to 6 hours back, extract
     <li>Introduction</li>
     <li>Modules</li>
     <li>Code Description</li>
-    <li>GSoC Experience</li>
     <li>Conclusion</li>
     <li>Team</li>
     <li>License</li>
