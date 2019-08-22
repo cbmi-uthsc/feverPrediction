@@ -24,14 +24,14 @@ Fever can provide valuable information for diagnosis and prognosis of various di
 We hace used vitialPeriodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over a 2-year period.
 <h4>Physiological Variabels</h4>
 <ol>
-    <li>**Temperature**: Patient’s temperature value in celsius/li>
-    <li>**saO2**: Patient’s saO2 value e.g.: 99, 94, 98</li>
-    <li>**heartRate**: Patient’s heart rate value e.g.: 102, 104, 70 </li>
-    <li>**respiration**: Patient’s respiration value e.g.: 25, 20, 17</li>
-    <li>**cvp**: Patient’s cvp value e.g.: 359, 272, 293</li>
-    <li>**systemicSystolic**: Patient’s systolic value e.g.: 120, 103, 106</li>
-    <li>**systemicDiastolic**: Patient’s diastolic value e.g.: 73, 65, 63</li>
-    <li>**systemicMean**: Patient’s mean pressure e.g.: 89, 75, 78</li>
+    <li><b>Temperature</b>: Patient’s temperature value in celsius/li>
+    <li><b>saO2</b>: Patient’s saO2 value e.g.: 99, 94, 98</li>
+    <li><b>heartRate</b>: Patient’s heart rate value e.g.: 102, 104, 70 </li>
+    <li><b>respiration</b>: Patient’s respiration value e.g.: 25, 20, 17</li>
+    <li><b>cvp</b>: Patient’s cvp value e.g.: 359, 272, 293</li>
+    <li><b>systemicSystolic</b>: Patient’s systolic value e.g.: 120, 103, 106</li>
+    <li><b>systemicDiastolic</b>: Patient’s diastolic value e.g.: 73, 65, 63</li>
+    <li><b>systemicMean</b>: Patient’s mean pressure e.g.: 89, 75, 78</li>
 </ol>
 
 
