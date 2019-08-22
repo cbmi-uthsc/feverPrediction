@@ -113,5 +113,5 @@ The script takes the data created by Preprocessing.py and feed it to different m
   </tbody>
 </table>
 
-## Prototype I
-You can check out first prototype <a href="https://github.com/adityauser/feverPrediction/tree/master/Prototype_I">here</a><br>.
+## License
+This software has been released under the [GNU General Public License v3](LICENSE).
