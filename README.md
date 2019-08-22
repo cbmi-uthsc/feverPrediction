@@ -55,6 +55,29 @@ Therefore the net features extracted are 49*5.
 
 We have tested our model on differnt models, some of them are Temporal Convolutional Networks, Logistic Regression, Random Forest and Xgboost. The data is first partitioned into the train (80%) and test (20%) datasets and then trained on the models mentioned above. Metrics like Score, F1 score and AUROC were calculated. We have got best result from Temporal Convolutional Networks.
 
+## Code Description
+<b><i>NOTE: All the required pyhton scripts are in Final Code folder. And before using any of the python scripts listed in this project, make sure the data is formatted according the eICU schema. Only then, will it work as intended.</i></b>
+<ul>
+<li><b>Normalization.py</b></li>
+<ul>
+
+The script normalize the vital columns of the dataset.
+</ul>
+<li><b>Medication.py</b></li>
+<ul>
+The script creats a python dictionary which has the pataient wise data for the time offset when the pataient was given antipyretic doses.
+</ul>
+<li><b>Preprocessing.py</b></li>
+<ul>
+The script takes vital data of pataients and saves the features extracted from the data. 
+</ul>
+<li><b>Models.py</b></li>
+<ul>
+The script takes the data created by Preprocessing.py and feed it to different models, so that we can compare differerent models on the basis of F1 score and AUROC score models are getting.
+</ul>
+
+</ul>
+
 ## Team
 <table align="center">
   <tbody>
