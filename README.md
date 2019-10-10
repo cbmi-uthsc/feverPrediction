@@ -17,11 +17,11 @@ For cases, Identify a fever episode temp >= 38, look up to 6 hours back, extract
 ## Introduction
 
 ### Background
-Fever can provide valuable information for diagnosis and prognosis of various diseases such as pneumonia, dengue, sepsis, etc., therefore, predicting fever early can help in the effectiveness of treatment options and expediting the treatment process. The aim of this project is to develop novel algorithms that can accurately predict fever onset in critically ill patients by applying machine learning technique on continuous physiological data. We have maded a model which can predict the occurence of fever, hours before it actaully occurs. This will provide doctors to take contingency actions early, and will decrease mortality rates significantly.
+Fever can provide valuable information for diagnosis and prognosis of various diseases such as pneumonia, dengue, sepsis, etc., therefore, predicting fever early can help in the effectiveness of treatment options and expediting the treatment process. The aim of this project is to develop novel algorithms that can accurately predict fever onset in critically ill patients by applying machine learning technique on continuous physiological data. We have made a model which can predict the occurence of fever, hours before it actually occurs. This will provide doctors to take contingency actions early, and will decrease mortality rates significantly.
 
 ### Dataset
-We hace used vitialPeriodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over a 2-year period.
-<h4>Physiological Variabels</h4>
+We have used vitialPeriodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over 200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over a 2-year period.
+<h4>Physiological Variables</h4>
 <ol>
     <li> <b>Temperature</b> : Patient’s temperature value in celsius </li>
     <li> <b>saO2</b> : Patient’s saO2 value e.g.: 99, 94, 98 </li>
@@ -38,7 +38,7 @@ We hace used vitialPeriodic dataset which is provided by the eICU Collaborative 
 ### Feature Extraction
 For the feature extraction process, we need to introduce the concept of time windows and time before true onset. Preprocessing is done is such a way that the time window, i.e the amount of data in a time period required to train the model is kept constant at 10 hours. So, we always train the model using 10hrs worth of data. Time before true onset means how early do we want to predict sepsis. This parameter has been varied in steps of 2 hours to get a better understanding of how your accuracy drops off as the time difference increases. For this experiment, we have used time priors of 2, 4, 6 and 8 hours. Even the time window has sub window of 0-2 hours, 0-4 hours, 0-6 hours, 0-8 hours and 0-10 hours, the sub windows were created so that our model could get temporal idea also.
 <br>
-Then we have preprocessed the entire dataframe according to each of these time differences. So we have processed data for 2 hours before sepsis with 6 hours of training data, 4 hours before with 6 hours of training data and so on so forth. We have seven physiological variables data streams for 5 diffenet sub window. We then extracted 7 statistical features from each of the original 7*5 data streams. <br>
+Then we have preprocessed the entire dataframe according to each of these time differences. So we have processed data for 2 hours before sepsis with 6 hours of training data, 4 hours before with 6 hours of training data and so on so forth. We have seven physiological variables data streams for 5 different sub window. We then extracted 7 statistical features from each of the original 7*5 data streams. <br>
 They are:
 <ul>
 <li>Standard Deviation</li>
@@ -53,10 +53,10 @@ Therefore the net features extracted are 49*5.
 
 ### Model Development
 
-We have tested our model on differnt models, some of them are Temporal Convolutional Networks, Logistic Regression, Random Forest and Xgboost. The data is first partitioned into the train (80%) and test (20%) datasets and then trained on the models mentioned above. Metrics like Score, F1 score and AUROC were calculated. We have got best result from Temporal Convolutional Networks.
+We have tested our model on different models, some of them are Temporal Convolutional Networks, Logistic Regression, Random Forest and Xgboost. The data is first partitioned into the train (80%) and test (20%) datasets and then trained on the models mentioned above. Metrics like Score, F1 score and AUROC were calculated. We have got best result from Temporal Convolutional Networks.
 
 ## Code Description
-<b><i>NOTE: All the required pyhton scripts are in Final Code folder. And before using any of the python scripts listed in this project, make sure the data is formatted according the eICU schema. Only then, will it work as intended.</i></b>
+<b><i>NOTE: All the required python scripts are in Final Code folder. And before using any of the python scripts listed in this project, make sure the data is formatted according the eICU schema. Only then, will it work as intended.</i></b>
 <ul>
 <li><b>Normalization.py</b></li>
 <ul>
@@ -65,15 +65,15 @@ The script normalize the vital columns of the dataset.
 </ul>
 <li><b>Medication.py</b></li>
 <ul>
-The script creats a python dictionary which has the pataient wise data for the time offset when the pataient was given antipyretic doses.
+The script creates a python dictionary which has the patient wise data for the time offset when the patient was given antipyretic doses.
 </ul>
 <li><b>Preprocessing.py</b></li>
 <ul>
-The script takes vital data of pataients and saves the features extracted from the data. 
+The script takes vital data of patients and saves the features extracted from the data. 
 </ul>
 <li><b>Models.py</b></li>
 <ul>
-The script takes the data created by Preprocessing.py and feed it to different models, so that we can compare differerent models on the basis of F1 score and AUROC score models are getting.
+The script takes the data created by Preprocessing.py and feed it to different models, so that we can compare different models on the basis of F1 score and AUROC score models are getting.
 </ul>
 
 </ul>
