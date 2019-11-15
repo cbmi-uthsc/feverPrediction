@@ -1,8 +1,7 @@
 # Fever Prediction
 Fever prediction model using high-frequency real-time sensor data
 
-<b>Problem Statement</b>: Build a Python-based application to predict fever from ICU sensor data streams.
-For cases, Identify a fever episode temp >= 38, look up to 6 hours back, extract features from that window. If a patient had multiple fever episodes during their stay, treat each episode as independent if there is at least a 24h gap between them. For controls, identify patients who never had any temperature over 38 or under 34 degrees Celsius. Randomly select a 6 hour period. Build regression models to predict the onset of fever.
+<b>Problem Statement</b>: Build a Python-based application to predict fever from ICU sensor data streams. For cases, Identify a fever episode temp >= 38, look up to 6 hours back, extract features from that window. If a patient had multiple fever episodes during their stay, treat each episode as independent if there is at least a 24h gap between them. For controls, identify patients who never had any temperature over 38 or under 34 degrees Celsius. Randomly select 6 hours. Build regression models to predict the onset of fever.
 
 <h4>Table of Contents</h4>
 <ol>
@@ -17,10 +16,10 @@ For cases, Identify a fever episode temp >= 38, look up to 6 hours back, extract
 ## Introduction
 
 ### Background
-Fever can provide valuable information for diagnosis and prognosis of various diseases such as pneumonia, dengue, sepsis, etc., therefore, predicting fever early can help in the effectiveness of treatment options and expediting the treatment process. The aim of this project is to develop novel algorithms that can accurately predict fever onset in critically ill patients by applying machine learning technique on continuous physiological data. We have maded a model which can predict the occurence of fever, hours before it actaully occurs. This will provide doctors to take contingency actions early, and will decrease mortality rates significantly.
+Fever can provide valuable information for the diagnosis and prognosis of various diseases such as pneumonia, dengue, sepsis, etc., therefore, predicting fever early can help in the effectiveness of treatment options and expediting the treatment process. This project aims to develop novel algorithms that can accurately predict fever onset in critically ill patients by applying a machine learning technique on continuous physiological data. We have made a model that can predict the occurrence of fever, hours before it occurs. This will provide doctors to take contingency actions early and will decrease mortality rates significantly.
 
 ### Dataset
-We hace used vitialPeriodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over a 2-year period.
+We have used a vital periodic dataset which is provided by the eICU Collaborative Research Database. It contains continuous physiological data collected every 5-minute from a cohort of over200,000 critically ill patients admitted to an Intensive Care Unit (ICU) over 2 years.
 <h4>Physiological Variabels</h4>
 <ol>
     <li> <b>Temperature</b> : Patient’s temperature value in celsius </li>
@@ -36,9 +35,9 @@ We hace used vitialPeriodic dataset which is provided by the eICU Collaborative 
 ## Modules
 
 ### Feature Extraction
-For the feature extraction process, we need to introduce the concept of time windows and time before true onset. Preprocessing is done is such a way that the time window, i.e the amount of data in a time period required to train the model is kept constant at 10 hours. So, we always train the model using 10hrs worth of data. Time before true onset means how early do we want to predict sepsis. This parameter has been varied in steps of 2 hours to get a better understanding of how your accuracy drops off as the time difference increases. For this experiment, we have used time priors of 2, 4, 6 and 8 hours. Even the time window has sub window of 0-2 hours, 0-4 hours, 0-6 hours, 0-8 hours and 0-10 hours, the sub windows were created so that our model could get temporal idea also.
+For the feature extraction process, we need to introduce the concept of time windows and time before the true onset. Preprocessing is done is such a way that the time window, i.e the amount of data in a time required to train the model is kept constant at 10 hours. So, we always train the model using 10hrs worth of data. The time before the true onset means how early do we want to predict sepsis. This parameter has been varied in steps of 2 hours to get a better understanding of how your accuracy drops off as the time difference increases. For this experiment, we have used time priors of 2, 4, 6 and 8 hours. Even the time window has a sub-window of 0-2 hours, 0-4 hours, 0-6 hours, 0-8 hours and 0-10 hours, the sub-windows were created so that our model could get the temporal idea also. 
 <br>
-Then we have preprocessed the entire dataframe according to each of these time differences. So we have processed data for 2 hours before sepsis with 6 hours of training data, 4 hours before with 6 hours of training data and so on so forth. We have seven physiological variables data streams for 5 diffenet sub window. We then extracted 7 statistical features from each of the original 7*5 data streams. <br>
+Then we have preprocessed the entire data frame according to each of these time differences. So we have processed data for 2 hours before sepsis with 6 hours of training data, 4 hours before with 6 hours of training data and so on so forth. We have seven physiological variables data streams for 5 different sub-window. We then extracted 7 statistical features from each of the original 7*5 data streams.<br>
 They are:
 <ul>
 <li>Standard Deviation</li>
@@ -56,7 +55,7 @@ Therefore the net features extracted are 49*5.
 We have tested our model on differnt models, some of them are Temporal Convolutional Networks, Logistic Regression, Random Forest and Xgboost. The data is first partitioned into the train (80%) and test (20%) datasets and then trained on the models mentioned above. Metrics like Score, F1 score and AUROC were calculated. We have got best result from Temporal Convolutional Networks.
 
 ## Code Description
-<b><i>NOTE: All the required pyhton scripts are in Final Code folder. And before using any of the python scripts listed in this project, make sure the data is formatted according the eICU schema. Only then, will it work as intended.</i></b>
+<b><i>NOTE: All the required python scripts are in the Final Code folder. And before using any of the python scripts listed in this project, make sure the data is formatted according to the eICU schema. Then and only then, it will work as intended.</i></b>
 <ul>
 <li><b>Normalization.py</b></li>
 <ul>
