@@ -69,7 +69,7 @@ The script creats a python dictionary which has the pataient wise data for the t
 </ul>
 <li><b>Preprocessing.py</b></li>
 <ul>
-The script takes vital data of pataients and saves the features extracted from the data. 
+The script takes vital data of patients and saves the features extracted from the data. 
 </ul>
 <li><b>Models.py</b></li>
 <ul>
