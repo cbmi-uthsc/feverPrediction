@@ -25,12 +25,12 @@ df = df.dropna(subset=['drugname'])
 feverDrugs = ['paracetamol',  'acetaminophen', 'ibuprofen',  'tylenol', 'advil',  'aspirin',  'motrin',  'naproxen', 'aleve', 'bayer', 'aspirin',  'ibu']
 for i in range(len(df)):
 
-    if dt.get(df.iloc[i]['patientunitstayid'], [0,0])[0]==0:
+    if dt.get(df.iloc[i]['patientunitstayid'])=="None":
         
-        drugs = df.iloc[i]['drugname'].split()
-        drugs = [drug.lower() for drug in drugs]
-        if sum([int(feverDrug==drug) for feverDrug in feverDrugs for drug in drugs])>0:
-            dt[df.iloc[i]['patientunitstayid']] = [1, df.iloc[i]['drugstartoffset']]
+        drug = (df.iloc[i]['drugname'].split()[0]).lower()
+       
+        if drug in feverDrugs:
+            dt[df.iloc[i]['patientunitstayid']] = [df.iloc[i]['drugstartoffset']]
 
 print('Done')
 
